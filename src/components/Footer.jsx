@@ -1,0 +1,1 @@
+export default function Footer() { return <footer className="footer"><div className="couple-mini">Emma <span className="amp">&amp;</span> Alexander</div><p className="date">12 Juni 2027 · Svärdsjö &amp; Falun</p><p className="signoff">Vi ses på dansgolvet!</p></footer>; }
