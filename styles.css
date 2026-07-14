@@ -245,6 +245,7 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 .tl-item .txt span { color: var(--muted); font-size: 0.98rem; }
 
 /* ============ Schema / Program ============ */
+.schedule-block { margin-top: clamp(64px, 10vw, 120px); }
 .schedule { max-width: 760px; margin: 0 auto; position: relative; }
 .schedule::before { content:""; position:absolute; left: 116px; top: 8px; bottom: 8px; width:1px; background: var(--brass-line); }
 @media (max-width: 620px){ .schedule::before { left: 8px; } }
