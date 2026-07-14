@@ -296,12 +296,9 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 .gallery-upload__title { font-family:var(--font-display); color:var(--accent-deep); font-size:clamp(1.45rem,3vw,1.8rem); }
 .gallery-upload__actions { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:12px; margin-top:18px; }
 .gallery-upload__input { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; }
-.gallery-upload__camera, .gallery-upload__picker { min-height:44px; cursor:pointer; font-family:var(--font-label); text-transform:uppercase; letter-spacing:.15em; font-size:.72rem; transition:transform .2s, background .2s, color .2s, border-color .2s; }
-.gallery-upload__camera { border:1px solid var(--accent-deep); border-radius:var(--radius); background:var(--accent-deep); color:var(--cream-2); padding:14px 24px; }
-.gallery-upload__camera:hover { transform:translateY(-1px); background:var(--sage-700); }
-.gallery-upload__picker { border:1px solid var(--brass-line); border-radius:var(--radius); background:transparent; color:var(--accent-deep); padding:13px 20px; }
+.gallery-upload__picker { min-height:44px; cursor:pointer; font-family:var(--font-label); text-transform:uppercase; letter-spacing:.15em; font-size:.72rem; transition:transform .2s, background .2s, color .2s, border-color .2s; border:1px solid var(--brass-line); border-radius:var(--radius); background:transparent; color:var(--accent-deep); padding:13px 20px; }
 .gallery-upload__picker:hover { border-color:var(--accent-deep); background:var(--cream-2); }
-.gallery-upload__camera:disabled, .gallery-upload__picker:disabled { cursor:wait; opacity:.7; transform:none; }
+.gallery-upload__picker:disabled { cursor:wait; opacity:.7; transform:none; }
 .gallery-upload__message { margin-top:14px; font-size:1rem; }
 .gallery-upload__message.success { color:var(--sage-700); }
 .gallery-upload__message.error { color:#a94332; }
@@ -451,7 +448,7 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
   .count-cell { min-width:64px; }
   .gallery-upload { margin-bottom:30px; padding:22px 18px; }
   .gallery-upload__actions { align-items:stretch; }
-  .gallery-upload__camera, .gallery-upload__picker { width:100%; justify-content:center; }
+  .gallery-upload__picker { width:100%; justify-content:center; }
   .contact { align-items:flex-start; padding:24px; }
   .footer .date { max-width:100%; letter-spacing:.18em; overflow-wrap:anywhere; }
 }
