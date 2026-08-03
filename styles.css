@@ -306,6 +306,8 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 .g-tall { grid-row: span 2; }
 .g-wide { grid-column: span 2; }
 @media (max-width: 760px){ .gallery { grid-template-columns: repeat(2, 1fr); } .g-wide{ grid-column: span 2;} }
+.gallery-status { margin-top: 18px; text-align: center; color: var(--muted); font-size: 0.95rem; }
+.gallery-status--error { color: #a94332; }
 
 /* Lightbox */
 .lightbox { position: fixed; inset:0; z-index: 90; background: rgba(40,44,32,0.86); display:none; place-items:center; padding:calc(5vw + var(--safe-area-top)) calc(5vw + env(safe-area-inset-right, 0px)) calc(5vw + var(--safe-area-bottom)) calc(5vw + env(safe-area-inset-left, 0px)); }
