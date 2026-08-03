@@ -282,6 +282,8 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 .card p { color: var(--muted); margin-top: 10px; font-size: 1rem; }
 .card .meta { margin-top: 18px; font-size: 0.92rem; color: var(--ink-soft); display:flex; flex-direction:column; gap:5px; }
 .card a.inline { color: var(--accent-deep); border-bottom:1px solid var(--brass-line); }
+.card__book { margin-top: 20px; width: 100%; justify-content: center; }
+.card__book-hint { margin-top: 10px; font-size: 0.82rem; color: var(--muted); }
 
 /* Split-sektion (klädkod) */
 .split { display:grid; grid-template-columns: 1fr 1fr; gap: clamp(30px,5vw,70px); align-items:center; }
