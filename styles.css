@@ -300,6 +300,14 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 .gallery-upload__message { margin-top:14px; font-size:1rem; }
 .gallery-upload__message.success { color:var(--sage-700); }
 .gallery-upload__message.error { color:#a94332; }
+.upload-progress { margin-top:4px; }
+.upload-progress__count { font-family:var(--font-display); color:var(--accent-deep); font-size:1.3rem; }
+.upload-progress__bar { margin-top:12px; height:10px; border-radius:999px; background:var(--sage-100); overflow:hidden; }
+.upload-progress__fill { height:100%; background:var(--accent-deep); border-radius:999px; transition:width .3s ease; }
+.upload-progress__file { margin-top:10px; font-size:.85rem; color:var(--muted); overflow-wrap:anywhere; }
+.gallery-upload__failure { margin-top:14px; }
+.gallery-upload__failed-list { margin-top:8px; font-size:.85rem; color:var(--muted); list-style:none; }
+.gallery-upload__retry { margin-top:16px; padding:12px 28px; }
 .gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 180px; gap: 14px; }
 .gallery .ph { cursor: pointer; transition: filter .25s; }
 .gallery .ph:hover { filter: brightness(0.96); }
@@ -314,6 +322,12 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 .lightbox.open { display: grid; }
 .lightbox .ph { width: auto; height: auto; background-color: var(--cream); }
 .lightbox__close { position: absolute; z-index: 1; top:calc(16px + var(--safe-area-top)); right:calc(16px + env(safe-area-inset-right, 0px)); min-width:44px; min-height:44px; color: var(--cream-2); font-size: 2rem; cursor: pointer; background:none; border:none; font-family: var(--font-display); }
+.lightbox__nav { position:absolute; z-index:1; top:50%; transform:translateY(-50%); min-width:44px; min-height:44px; display:grid; place-items:center; color:var(--cream-2); font-size:2.4rem; line-height:1; cursor:pointer; background:rgba(0,0,0,0.22); border:none; border-radius:50%; font-family:var(--font-display); transition:background .2s; }
+.lightbox__nav:hover { background:rgba(0,0,0,0.4); }
+.lightbox__nav--prev { left:calc(10px + env(safe-area-inset-left, 0px)); }
+.lightbox__nav--next { right:calc(10px + env(safe-area-inset-right, 0px)); }
+.lightbox__position { position:absolute; z-index:1; bottom:calc(16px + var(--safe-area-bottom)); left:50%; transform:translateX(-50%); color:var(--cream-2); font-family:var(--font-label); letter-spacing:.1em; font-size:.8rem; background:rgba(0,0,0,0.3); padding:6px 14px; border-radius:999px; }
+@media (max-width: 620px){ .lightbox__nav { font-size:1.9rem; } }
 
 /* ============ Toastmasters / Kontakt ============ */
 .contacts { display:grid; grid-template-columns: repeat(2, 1fr); gap: clamp(20px,3vw,32px); max-width: 880px; margin: 0 auto; }
