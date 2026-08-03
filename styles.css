@@ -312,8 +312,8 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 /* Lightbox */
 .lightbox { position: fixed; inset:0; z-index: 90; background: rgba(40,44,32,0.86); display:none; place-items:center; padding:calc(5vw + var(--safe-area-top)) calc(5vw + env(safe-area-inset-right, 0px)) calc(5vw + var(--safe-area-bottom)) calc(5vw + env(safe-area-inset-left, 0px)); }
 .lightbox.open { display: grid; }
-.lightbox .ph { width: min(760px, 90vw); aspect-ratio: 3/2; background-color: var(--cream); }
-.lightbox__close { position: absolute; top:calc(16px + var(--safe-area-top)); right:calc(16px + env(safe-area-inset-right, 0px)); min-width:44px; min-height:44px; color: var(--cream-2); font-size: 2rem; cursor: pointer; background:none; border:none; font-family: var(--font-display); }
+.lightbox .ph { width: auto; height: auto; background-color: var(--cream); }
+.lightbox__close { position: absolute; z-index: 1; top:calc(16px + var(--safe-area-top)); right:calc(16px + env(safe-area-inset-right, 0px)); min-width:44px; min-height:44px; color: var(--cream-2); font-size: 2rem; cursor: pointer; background:none; border:none; font-family: var(--font-display); }
 
 /* ============ Toastmasters / Kontakt ============ */
 .contacts { display:grid; grid-template-columns: repeat(2, 1fr); gap: clamp(20px,3vw,32px); max-width: 880px; margin: 0 auto; }
@@ -458,6 +458,7 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 }
 
 /* React component additions */
-.story__media img, .gallery .ph img, .lightbox .ph img { width:100%; height:100%; object-fit:cover; }
+.story__media img, .gallery .ph img { width:100%; height:100%; object-fit:cover; }
+.lightbox .ph img { display:block; width:auto; height:auto; max-width:88vw; max-height:80vh; object-fit:contain; }
 .gallery .ph { border:0; padding:0; }
 .venue-note { text-align:center; color:var(--muted); margin:32px auto 0; font-size:.98rem; max-width:680px; }
