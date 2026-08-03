@@ -312,12 +312,20 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 .gallery-upload__failure { margin-top:14px; }
 .gallery-upload__failed-list { margin-top:8px; font-size:.85rem; color:var(--muted); list-style:none; }
 .gallery-upload__retry { margin-top:16px; padding:12px 28px; }
-.gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 180px; gap: 14px; }
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 180px; grid-auto-flow: dense; gap: 14px; }
 .gallery .ph { cursor: pointer; transition: filter .25s; }
 .gallery .ph:hover { filter: brightness(0.96); }
 .g-tall { grid-row: span 2; }
 .g-wide { grid-column: span 2; }
 @media (max-width: 760px){ .gallery { grid-template-columns: repeat(2, 1fr); } .g-wide{ grid-column: span 2;} }
+.gallery-wrap { position: relative; }
+.gallery-fade { position: absolute; left: 0; right: 0; bottom: 0; height: 120px; background: linear-gradient(to bottom, transparent, var(--bg-alt)); pointer-events: none; }
+.gallery-more { display: flex; margin: 28px auto 0; }
+.fade-img { opacity: 0; transition: opacity .4s ease; }
+.fade-img.is-loaded { opacity: 1; }
+.skeleton { background-image: none; background-color: var(--sage-50); position: relative; overflow: hidden; }
+.skeleton::after { content:""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, color-mix(in oklab, var(--sage-200) 60%, transparent) 50%, transparent 70%); background-size: 200% 100%; animation: shimmer 1.6s ease-in-out infinite; }
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 .gallery-status { margin-top: 18px; text-align: center; color: var(--muted); font-size: 0.95rem; }
 .gallery-status--error { color: #a94332; }
 
