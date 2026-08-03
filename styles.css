@@ -333,6 +333,9 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 .rsvp .divider::before { background: linear-gradient(90deg, transparent, var(--brass-soft)); }
 .rsvp .divider::after { background: linear-gradient(90deg, var(--brass-soft), transparent); }
 .rsvp .divider .mark { background: var(--brass-soft); }
+.rsvp .form-success h3 { color: var(--cream-2); }
+.rsvp .form-success p { color: color-mix(in oklab, var(--cream-2) 85%, transparent); }
+.rsvp .form-success .form-success__note { color: color-mix(in oklab, var(--cream-2) 65%, transparent); }
 .form {
   max-width: 680px; margin: 0 auto; background: var(--cream-2); color: var(--ink);
   border-radius: var(--radius-lg); padding: clamp(30px, 5vw, 52px); box-shadow: var(--shadow);
@@ -385,11 +388,11 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 .card--rec .rec-badge { position:absolute; top: -11px; left: 30px; background: var(--brass); color: var(--cream-2); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.62rem; padding: 6px 15px; border-radius: 999px; }
 .code-pill { display:inline-block; background: var(--sage-50); border:1px dashed var(--brass-line); color: var(--brass); font-family:'Courier New', monospace; letter-spacing:0.08em; padding: 3px 9px; border-radius: 2px; }
 
-.form-success { display:none; text-align:center; padding: 30px 10px; }
-.form-success.show { display:block; animation: slideDown .4s ease; }
-.form-success .seal { width: 76px; height:76px; border-radius:50%; border:1px solid var(--brass-line); display:grid; place-items:center; margin: 0 auto 22px; color: var(--brass); }
-.form-success h3 { font-size: 2rem; }
-.form-success p { color: var(--muted); margin-top: 10px; }
+.form-success { display:none; max-width: 640px; margin: 0 auto; text-align:center; padding: clamp(24px, 5vw, 40px) 20px; }
+.form-success.show { display:block; animation: slideDown .4s ease forwards; }
+.form-success .seal { width: clamp(56px, 12vw, 76px); height: clamp(56px, 12vw, 76px); font-size: clamp(1.1rem, 4vw, 1.4rem); border-radius:50%; border:1px solid var(--brass-line); display:grid; place-items:center; margin: 0 auto 22px; color: var(--brass); }
+.form-success h3 { font-size: clamp(1.6rem, 5vw, 2rem); }
+.form-success p { color: var(--muted); max-width: 480px; margin: 10px auto 0; }
 .form-success .form-success__note { color: var(--muted); font-size: 0.85rem; margin-top: 16px; }
 
 /* ============ FAQ ============ */
