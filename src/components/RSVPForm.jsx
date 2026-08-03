@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-// Replace this with the deployed Google Apps Script Web App URL before publishing.
-const GOOGLE_SHEET_ENDPOINT = 'https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYMENT_ID/exec';
+const GOOGLE_SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz5Wc9NEh1caJan6GGR4PN3DHk94uuOd7qJuMJM8YQvrEPQ7twAwsMKwSZc6ROnCBkZ/exec';
 const initialForm = { name: '', email: '', attending: '', dietaryNotes: '', message: '' };
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

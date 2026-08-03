@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const PHOTO_UPLOAD_ENDPOINT = import.meta.env.VITE_PHOTO_UPLOAD_ENDPOINT;
+const PHOTO_UPLOAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwPGnvcb_uHdbTlVKr6D7jnvsHfwzD7T0VtsD_jBDZ-iUBWAdceLjbGzvfAlz3QltAZDQ/exec';
 const photos = [{ src: '/images/frieriet-alperna.jpg', alt: 'Förlovningsringen i Alperna', className: 'g-tall' }, { src: '/images/emma-ostron.jpg', alt: 'Emma med ostron i skärgården' }, { src: '/images/elsie.jpg', alt: 'Lilla Elsie' }, { src: '/images/alexander-ostron.jpg', alt: 'Alexander med ostron i skärgården', className: 'g-tall' }];
 
 const fileToBase64 = (file) => new Promise((resolve, reject) => {
@@ -21,11 +21,9 @@ export default function Gallery() {
     if (!files.length) return;
     setUploadStatus('sending');
     try {
-      if (!PHOTO_UPLOAD_ENDPOINT) throw new Error('Missing photo upload endpoint');
       await Promise.all(files.map(async (file) => {
-        const data = await fileToBase64(file);
-        const response = await fetch(PHOTO_UPLOAD_ENDPOINT, { method: 'POST', body: JSON.stringify({ fileName: file.name, mimeType: file.type, data }), headers: { 'Content-Type': 'text/plain;charset=utf-8' } });
-        if (!response.ok) throw new Error('Photo upload failed');
+        const fileData = await fileToBase64(file);
+        await fetch(PHOTO_UPLOAD_ENDPOINT, { method: 'POST', mode: 'no-cors', body: JSON.stringify({ fileName: file.name, mimeType: file.type, fileData }) });
       }));
       setUploadStatus('success');
     } catch {
