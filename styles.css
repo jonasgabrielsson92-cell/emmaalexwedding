@@ -242,21 +242,37 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 .story__body p:first-of-type { margin-top: 26px; }
 
 /* ============ Tidslinje (Fredagens program, lördagens schema, Vår historia) ============
-   Delad, centrerad stil för alla sekvenser på sajten: en lodrät mässingslinje med
-   en romb-prick per punkt, valfri liten brass-etikett (tid/år) och centrerad text. */
+   Delad stil för alla sekvenser på sajten: en smal vänsterkolumn med lodrät
+   mässingslinje + prick, och en textkolumn till höger (vänsterjusterad text).
+   Linjen och pricken ligger i egna, ostretchade grid-celler i markörkolumnen —
+   aldrig ovanpå eller bakom text — och linjen är ett vanligt flöde-element
+   (ingen position:absolute), staplat mot pricken via grid-area-overlap.
+   --tl-offset styr var pricken hamnar i förhållande till textens första rad;
+   samma värde används för att klippa linjen så att den börjar vid första och
+   slutar vid sista pricken (se :first-child/:last-child nedan). */
 .timeline-block { margin-top: clamp(64px, 10vw, 120px); }
-.timeline { max-width: 620px; margin: 0 auto; position: relative; }
-.timeline::before { content:""; position:absolute; left:50%; top:8px; bottom:8px; width:1px; background: var(--brass-line); transform: translateX(-50%); z-index:0; }
-.timeline__item { position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px; padding: 24px 0; }
-.timeline__dot { position:relative; z-index:1; width:9px; height:9px; background: var(--brass); border:2px solid var(--cream); border-radius:50%; transform: rotate(45deg); }
-.timeline__item h3 { font-size: 1.5rem; }
-.timeline__item p { color: var(--muted); font-size: 1rem; max-width: 480px; }
+.timeline { max-width: 620px; margin: 0 auto; --tl-offset: 30px; }
+.timeline__item { display: grid; grid-template-columns: 24px 1fr; column-gap: 24px; }
+.timeline__marker { display: grid; justify-items: center; }
+.timeline__line, .timeline__dot { grid-column: 1; grid-row: 1; }
+.timeline__line { width: 1px; height: 100%; background: var(--brass-line); }
+.timeline__dot { align-self: start; margin-top: var(--tl-offset); width: 9px; height: 9px; background: var(--brass); border: 2px solid var(--cream); border-radius: 50%; transform: rotate(45deg); }
+/* Linjen ska bara löpa mellan första och sista pricken, aldrig ut i tomma luften. */
+.timeline__item:first-child .timeline__line { margin-top: var(--tl-offset); height: calc(100% - var(--tl-offset)); }
+.timeline__item:last-child .timeline__line { height: var(--tl-offset); }
+.timeline__item:first-child:last-child .timeline__line { height: 0; }
+.timeline__body { padding: 24px 0; text-align: left; }
+.timeline__body > * + * { margin-top: 8px; }
+.timeline__body h3 { font-size: 1.5rem; }
+.timeline__body p { color: var(--muted); font-size: 1rem; }
 
 /* Vår historia sitter i story__body, en smalare kolumn — ingen fast maxbredd behövs där. */
 .timeline--compact { max-width: none; margin: 38px 0 0; }
 
 @media (max-width: 620px){
-  .timeline__item { padding: 20px 0; gap: 6px; }
+  .timeline { --tl-offset: 26px; }
+  .timeline__item { grid-template-columns: 16px 1fr; column-gap: 14px; }
+  .timeline__body { padding: 20px 0; }
 }
 
 /* ============ Plats ============ */
