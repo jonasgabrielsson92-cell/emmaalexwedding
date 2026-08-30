@@ -183,7 +183,7 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 /* ============ Hero ============ */
 .hero {
   min-height: 100vh; min-height: 100svh; display: grid; place-items: center; text-align: center;
-  position: relative; padding: calc(var(--nav-height) + clamp(42px, 8vh, 70px)) var(--gutter) calc(74px + var(--safe-area-bottom));
+  position: relative; padding: calc(var(--nav-height) + clamp(42px, 8vh, 70px)) var(--gutter) calc(112px + var(--safe-area-bottom));
   background:
     linear-gradient(180deg, var(--cream-2) 0%, var(--cream) 46%, var(--cream) 100%);
   overflow: hidden;
@@ -206,7 +206,9 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 :root[data-style="romantisk"] .couple-names { letter-spacing: 0; }
 .hero__meta { margin-top: 42px; display: flex; flex-direction: column; gap: 18px; align-items: center; }
 .hero__meta::before { content:""; width: 44px; height:1px; background: var(--brass-line); }
-.hero__date { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem); letter-spacing: 0.1em; white-space: nowrap; }
+.hero__date { display:flex; flex-direction:column; align-items:center; gap:5px; }
+.hero__date-day { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.15; letter-spacing: 0.1em; white-space: nowrap; }
+.hero__date-label { font-family: var(--font-display); font-size: clamp(0.82rem, 1.8vw, 1rem); line-height: 1.15; letter-spacing: 0.12em; color: var(--muted); white-space: nowrap; }
 .hero__place { max-width:100%; font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.28em; font-size: 0.78rem; color: var(--muted); overflow-wrap:anywhere; }
 .hero__actions { margin-top: 44px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
 .scroll-cue { position:absolute; bottom:calc(30px + var(--safe-area-bottom)); left:50%; transform:translateX(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px; color:var(--muted); font-family:var(--font-label); font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; }
@@ -239,24 +241,22 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 .story__body p { color: var(--ink-soft); margin-top: 18px; }
 .story__body p:first-of-type { margin-top: 26px; }
 
-/* ============ Timeline (Schema/Program + Vår historia) ============ */
-.schedule-block { margin-top: clamp(64px, 10vw, 120px); }
-.schedule { max-width: 760px; margin: 0 auto; position: relative; }
-.schedule--compact { max-width: none; margin: 38px 0 0; }
-.schedule--notime::before { display: none; }
-.schedule--notime .event { grid-template-columns: 1fr; gap: 4px; padding-left: 30px; }
-.schedule--notime .event__dot { left: 4px; top: 12px; }
-.schedule::before { content:""; position:absolute; left: 164px; top: 8px; bottom: 8px; width:1px; background: var(--brass-line); }
-@media (max-width: 620px){ .schedule::before { left: 8px; } }
-.event { display: grid; grid-template-columns: 148px 1fr; gap: 36px; padding: 24px 0; position: relative; }
-.event__time { text-align: right; font-family: var(--font-label); text-transform: var(--label-transform); letter-spacing: var(--label-spacing); font-size: 0.78rem; font-weight: 600; color: var(--brass); line-height: 1.5; padding-top: 6px; }
-.event__dot { position:absolute; left: 160px; top: 32px; width: 9px; height: 9px; background: var(--brass); border:2px solid var(--cream); border-radius:50%; transform: rotate(45deg); }
-.event__body h3 { font-size: 1.5rem; }
-.event__body p { color: var(--muted); margin-top: 4px; font-size: 1rem; }
+/* ============ Tidslinje (Fredagens program, lördagens schema, Vår historia) ============
+   Delad, centrerad stil för alla sekvenser på sajten: en lodrät mässingslinje med
+   en romb-prick per punkt, valfri liten brass-etikett (tid/år) och centrerad text. */
+.timeline-block { margin-top: clamp(64px, 10vw, 120px); }
+.timeline { max-width: 620px; margin: 0 auto; position: relative; }
+.timeline::before { content:""; position:absolute; left:50%; top:8px; bottom:8px; width:1px; background: var(--brass-line); transform: translateX(-50%); z-index:0; }
+.timeline__item { position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px; padding: 24px 0; }
+.timeline__dot { position:relative; z-index:1; width:9px; height:9px; background: var(--brass); border:2px solid var(--cream); border-radius:50%; transform: rotate(45deg); }
+.timeline__item h3 { font-size: 1.5rem; }
+.timeline__item p { color: var(--muted); font-size: 1rem; max-width: 480px; }
+
+/* Vår historia sitter i story__body, en smalare kolumn — ingen fast maxbredd behövs där. */
+.timeline--compact { max-width: none; margin: 38px 0 0; }
+
 @media (max-width: 620px){
-  .event { grid-template-columns: 1fr; gap: 4px; padding-left: 30px; }
-  .event__time { text-align: left; font-size: 0.76rem; padding-top: 0; }
-  .event__dot { left: 4px; top: 12px; }
+  .timeline__item { padding: 20px 0; gap: 6px; }
 }
 
 /* ============ Plats ============ */
@@ -287,9 +287,11 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 /* Split-sektion (klädkod) */
 .split { display:grid; grid-template-columns: 1fr 1fr; gap: clamp(30px,5vw,70px); align-items:center; }
 .split__media { aspect-ratio: 5/6; }
-.dress-swatches { display:flex; gap:14px; margin-top: 26px; flex-wrap:wrap; }
+.dress-copy { margin-top: 24px; }
+.swatch-caption { font-size: 0.85rem; color: var(--muted); margin-top: 18px; }
+.dress-swatches { display:flex; gap:14px; margin-top: 12px; flex-wrap:wrap; }
 .swatch { display:flex; flex-direction:column; align-items:center; gap:8px; }
-.swatch .chip { width: 56px; height: 56px; border-radius: 50%; border:1px solid var(--brass-line); }
+.swatch .chip { width: 56px; height: 56px; border-radius: 50%; border:1px solid var(--line); box-shadow: 0 1px 3px rgba(42, 51, 36, 0.18); }
 .swatch span { font-family: var(--font-label); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 
 /* ============ Galleri ============ */
