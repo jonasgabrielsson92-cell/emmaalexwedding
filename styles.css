@@ -237,7 +237,7 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 
 /* ============ Vår historia ============ */
 .story { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(40px, 6vw, 90px); align-items: center; }
-.story__media { aspect-ratio: 4/5; }
+.story__media { aspect-ratio: 4/5; display: block; }
 .story__body p { color: var(--ink-soft); margin-top: 18px; }
 .story__body p:first-of-type { margin-top: 26px; }
 
