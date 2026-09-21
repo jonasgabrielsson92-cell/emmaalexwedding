@@ -301,21 +301,18 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 .card__book-hint { margin-top: 10px; font-size: 0.82rem; color: var(--muted); }
 
 /* Klädkod: två identiskt strukturerade dagblock (rubrik, kort text), centrerat enligt sajtens övriga sektioner. */
-.dress-days { display: flex; flex-direction: column; align-items: center; }
-.dress-days .divider { margin: 40px 0; }
+.dress-days { display: flex; flex-direction: column; align-items: center; max-width: 480px; }
+.dress-days .divider { margin: 56px 0; }
 .dress-day { text-align: center; }
 .dress-day h3 { font-size: 1.5rem; }
-.dress-note { margin-top: 8px; color: var(--ink-soft); }
+.dress-note { margin-top: 10px; font-size: 0.98rem; line-height: 1.6; color: var(--ink-soft); }
 
 /* Klädkod-illustration: bilden bredvid texten på desktop (bild vänster, text höger), bilden under texten på mobil. */
-.dresscode { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(40px, 6vw, 80px); align-items: center; margin-top: clamp(40px, 6vw, 64px); }
+.dresscode { display: grid; grid-template-columns: 1fr; gap: clamp(40px, 6vw, 80px); align-items: center; margin-top: clamp(40px, 6vw, 64px); }
 .dresscode__media { display: flex; justify-content: center; }
-.dresscode__media img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 2 / 3; max-height: 640px; object-fit: contain; mix-blend-mode: darken; }
-@media (max-width: 900px) {
-  .dresscode { grid-template-columns: 1fr; }
-}
+.dresscode__media img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: contain; mix-blend-mode: darken; }
 @media (min-width: 901px) {
-  .dresscode { grid-template-columns: 0.9fr 1.1fr; }
+  .dresscode { grid-template-columns: 0.95fr 1.05fr; }
   .dresscode__media { order: -1; }
   .dresscode .dress-days { align-items: flex-start; }
   .dresscode .dress-day { text-align: left; }
