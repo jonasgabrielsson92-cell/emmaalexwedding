@@ -48,7 +48,7 @@ export default function Gallery() {
   const galleryInputRef = useRef(null);
   const touchStartXRef = useRef(null);
 
-  const allPhotos = drivePhotos.map((photo) => ({ id: photo.id, src: photo.url, lightboxSrc: toLightboxUrl(photo.url), alt: photo.name, width: photo.width, height: photo.height }));
+  const allPhotos = drivePhotos.map((photo, index) => ({ id: photo.id, src: photo.url, lightboxSrc: toLightboxUrl(photo.url), alt: `Bild ${index + 1} från gästernas galleri`, width: photo.width, height: photo.height }));
   const visiblePhotos = allPhotos.slice(0, visibleCount);
   const hasMore = allPhotos.length > visibleCount;
   const showSkeleton = loadStatus === 'loading' && drivePhotos.length === 0;

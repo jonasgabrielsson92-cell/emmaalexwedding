@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import { CEREMONY_START } from '../weddingInfo';
 
-const weddingDate = new Date('2027-06-11T18:00:00+02:00').getTime();
+const weddingDate = new Date(CEREMONY_START).getTime();
 const getTimeLeft = () => { const diff = Math.max(0, weddingDate - Date.now()); return [Math.floor(diff / 86400000), Math.floor(diff % 86400000 / 3600000), Math.floor(diff % 3600000 / 60000), Math.floor(diff % 60000 / 1000)]; };
 
 export default function Countdown() {
