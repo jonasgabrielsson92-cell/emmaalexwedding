@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const links = [['#historia', 'Vår historia'], ['#schema', 'Schema'], ['#plats', 'Plats'], ['#boende', 'Boende'], ['#info', 'Info'], ['#galleri', 'Galleri'], ['#faq', 'FAQ']];
+const links = [['#historia', 'Vår historia'], ['#schema', 'Schema'], ['#plats', 'Plats'], ['#boende', 'Boende'], ['#kladkod', 'Klädkod'], ['#gavor', 'Gåvor'], ['#galleri', 'Galleri'], ['#faq', 'FAQ']];
 
 export default function Navigation({ menuOpen, onMenuToggle, onNavigate, scrolled }) {
   const navRef = useRef(null);

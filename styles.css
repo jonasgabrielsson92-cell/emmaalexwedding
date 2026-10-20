@@ -485,8 +485,9 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
   .cards { grid-template-columns: 1fr 1fr; }
   .story__media { aspect-ratio: 16/10; }
 }
+@media (min-width: 821px) and (max-width: 1100px){ .nav__brand .wordmark { display:none; } }
 @media (max-width: 820px){
-  .nav__links { position: fixed; inset: 0 0 auto 0; top: 0; flex-direction: column; background: var(--cream-2); padding:calc(var(--nav-height) + 20px) var(--gutter) calc(32px + var(--safe-area-bottom)); gap: 12px; transform: translateY(-110%); transition: transform .4s ease; box-shadow: var(--shadow); height: auto; align-items:stretch; }
+  .nav__links { position: fixed; inset: 0 0 auto 0; top: 0; flex-direction: column; background: var(--cream-2); padding:calc(var(--nav-height) + 20px) var(--gutter) calc(32px + var(--safe-area-bottom)); gap: 12px; transform: translateY(-110%); transition: transform .4s ease; box-shadow: var(--shadow); height: auto; max-height:100dvh; overflow-y:auto; overscroll-behavior:contain; align-items:stretch; }
   .nav__links.open { transform: translateY(0); }
   .nav__links a { display:flex; align-items:center; min-height:44px; font-size: 1.1rem; }
   .nav__toggle { display:flex; z-index: 70; }
