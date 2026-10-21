@@ -365,8 +365,6 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
   padding: 13px 15px; transition: border-color .2s, box-shadow .2s;
 }
 .field textarea { resize: vertical; min-height: 110px; }
-.field .check-label { display:flex; align-items:center; gap:10px; text-transform:none; letter-spacing:normal; font-family: var(--font-body); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 0; cursor: pointer; }
-.field .check-label input[type="checkbox"] { width:auto; padding:0; border:none; background:none; accent-color: var(--accent-deep); }
 .field input:focus, .field select:focus, .field textarea:focus { outline:none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 18%, transparent); }
 .field .hint { font-size: 0.85rem; color: var(--muted); margin-top: 7px; }
 .field.error input, .field.error select { border-color: #b4553f; box-shadow: 0 0 0 3px rgba(180,85,63,0.14); }
@@ -384,8 +382,9 @@ section { padding: clamp(72px, 11vw, 140px) var(--gutter); }
 @media (max-width: 480px){ .attend { grid-template-columns: 1fr; } }
 .attend__hint { margin: -2px 0 12px; }
 .attend--three { grid-template-columns: repeat(3, 1fr); }
-.attend--three .opt { font-size: 1.12rem; padding: 16px 12px; }
-@media (max-width: 700px){ .attend--three { grid-template-columns: 1fr; grid-auto-rows: 1fr; gap: 10px; } .attend--three .opt { font-size: 1.2rem; padding: 14px; } }
+.attend--two { grid-template-columns: repeat(2, 1fr); }
+.attend--three .opt, .attend--two .opt { font-size: 1.12rem; padding: 16px 12px; }
+@media (max-width: 700px){ .attend--three, .attend--two { grid-template-columns: 1fr; grid-auto-rows: 1fr; gap: 10px; } .attend--three .opt, .attend--two .opt { font-size: 1.2rem; padding: 14px; } }
 
 .guest-extra { display:none; }
 .guest-extra.show { display:block; animation: slideDown .35s ease; }
